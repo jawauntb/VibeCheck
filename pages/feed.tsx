@@ -7,7 +7,7 @@ import VibeItem from '../components/vibes/VibeItem';
 
 export default function Feed() {
   const supabase = useSupabaseClient<Database>();
-  const [vibes, setVibes] = useState<Database['public']['Tables']['Vibes']['Row'][]>([]);
+  const [vibes, setVibes] = useState<Database['public']['Tables']['vibes']['Row'][]>([]);
 
   useEffect(() => {
     fetchVibes();
