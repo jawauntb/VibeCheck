@@ -1,8 +1,12 @@
+import React from 'react';
 import '../styles/globals.css';
 import { useState } from 'react'
 import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs'
 import { SessionContextProvider, Session } from '@supabase/auth-helpers-react'
 import { AppProps } from 'next/app'
+// pages/_app.tsx
+
+import Header from '../components/Header';
 
 function MyApp({
   Component,
@@ -14,7 +18,10 @@ function MyApp({
 
   return (
     <SessionContextProvider supabaseClient={supabase} initialSession={pageProps.initialSession}>
-      <Component {...pageProps} />
+      <main>
+        <Header />
+        <Component {...pageProps} />
+      </main>
     </SessionContextProvider>
   )
 }

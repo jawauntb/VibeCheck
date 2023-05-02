@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useUser, useSupabaseClient, Session } from '@supabase/auth-helpers-react'
-import { Database } from '../utils/database.types'
+import { Database } from '../types/supabase'
 import Avatar from './Avatar'
 
 
@@ -60,7 +60,7 @@ export default function Account({ session }: { session: Session }) {
       if (!user) throw new Error('No user')
 
       const updates = {
-        id: user.id,
+        id: parseInt(user.id),
         username,
         website,
         avatar_url,
@@ -81,15 +81,15 @@ export default function Account({ session }: { session: Session }) {
     return (
     <div className="form-widget">
         {/* Add to the body */}
-        <Avatar
-        uid={user.id}
-        url={avatar_url}
-        size={150}
-        onUpload={(url) => {
-            setAvatarUrl(url)
-            updateProfile({ username, website, avatar_url: url })
-        }}
-        />
+      <Avatar
+      uid={user?.id || ''}
+      url={avatar_url}
+      size={150}
+      onUpload={(url) => {
+        setAvatarUrl(url)
+        updateProfile({ username, website, avatar_url: url })
+      }}
+    />
       <div>
         <label htmlFor="email">Email</label>
         <input id="email" type="text" value={session.user.email} disabled />

@@ -9,12 +9,36 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      Vibes: {
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string | null
+          id: number
+          username: string | null
+          website: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string | null
+          id?: number
+          username?: string | null
+          website?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string | null
+          id?: number
+          username?: string | null
+          website?: string | null
+        }
+      }
+      vibes: {
         Row: {
           account: string | null
           created_at: string | null
           id: number
           location: string | null
+          user_id: string | null
           vibe: string | null
         }
         Insert: {
@@ -22,6 +46,7 @@ export interface Database {
           created_at?: string | null
           id?: number
           location?: string | null
+          user_id?: string | null
           vibe?: string | null
         }
         Update: {
@@ -29,6 +54,7 @@ export interface Database {
           created_at?: string | null
           id?: number
           location?: string | null
+          user_id?: string | null
           vibe?: string | null
         }
       }
