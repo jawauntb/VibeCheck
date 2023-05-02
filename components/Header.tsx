@@ -6,8 +6,8 @@ export default function Header() {
   return (
     <header>
       {/* Other navigation links */}
-      <Link href="/feed">
-        <a className="text-lg font-semibold">Feed</a>
+      <Link href="/">
+        <span className="text-lg font-semibold">VibeCheck</span>
       </Link>
     </header>
   );

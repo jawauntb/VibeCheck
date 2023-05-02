@@ -3,7 +3,7 @@
 import { Database } from '../../types/supabase';
 
 interface VibeItemProps {
-  vibe: Database['public']['Tables']['Vibes']['Row'];
+  vibe: Database['public']['Tables']['vibes']['Row'];
 }
 
 const VibeItem = ({ vibe }: VibeItemProps) => {

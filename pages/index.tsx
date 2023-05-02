@@ -1,9 +1,10 @@
+// pages/index.tsx
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
-// import Account from '../components/Account';
 import EmojiButton from '../components/EmojiButton';
 import VibeForm from '../components/vibes/VibeForm';
+import VibeList from '../components/vibes/VibeList';
 
 const Index = () => {
   const session = useSession();
@@ -24,8 +25,13 @@ const Index = () => {
         </>
       ) : (
         <>
-          <EmojiButton />
-          <VibeForm />
+          <div className="max-w-md">
+            <EmojiButton />
+            <VibeForm />
+            <div className="mt-4 flex flex-col">
+              <VibeList />
+            </div>
+          </div>
         </>
       )}
     </div>
